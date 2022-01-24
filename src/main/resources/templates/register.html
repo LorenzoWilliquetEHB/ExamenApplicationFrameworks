@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:max-width="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/CSS/styles.css}">
+    <title>Eindproject_Lorenzo_Williquet</title>
+</head>
+<body>
+<div th:insert=" ~{navbar.html :: navbar_winkel}"></div>
+
+<div id="container">
+    <div>
+        <img class="img_login" src="/images/baardagaam.jpg"/>
+        <div class="tekst_index text-center">
+            <form th:action="@{/process_register}" method="post" th:object="${user}"
+                  style="max-width:300px; margin:auto;">
+                <h1 class="h3 mb-3 fw-normal">Registreren</h1>
+
+
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" class="form-control mb-3" id="email" th:field="*{email}" name="username"
+                       placeholder="Email"
+                       required autofocus/>
+
+                <label for="password" class="sr-only">Wachtwoord</label>
+                <input type="password" class="form-control mb-3" id="password" th:field="*{password}" name="password"
+                       placeholder="Wachtwoord" required/>
+
+                <label for="firstname" class="sr-only">Voornaam</label>
+                <input type="text" class="form-control mb-3" id="firstname" th:field="*{firstName}" name="firstname"
+                       placeholder="Voornaam" required/>
+
+                <label for="lastname" class="sr-only">Achternaam</label>
+                <input type="text" class="form-control" id="lastname" th:field="*{lastName}" name="lastname"
+                       placeholder="Achternaam" required/>
+
+                <div class="mt-3">
+                    <button class="btn btn-lg btn-success btn-block" type="submit">Registreren</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="footer" th:insert="~{footer.html :: footer_winkel}"></div>
+</body>
+</html>

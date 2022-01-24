@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<div th:fragment="navbar_winkel">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand nav-kk" th:href="@{/index}">Welkom bij (Dierenwinkel)</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/products}">Producten</a>
+                </li>
+
+                <li class="nav-item"  sec:authorize="hasAnyAuthority('ADMIN')">
+                    <a class="nav-link" th:href="@{/products_crud}">Lijst Producten</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" th:action="@{/login}" sec:authorize="!isAuthenticated()">
+                <button class="btn my-2 my-sm-0" type="submit">Inloggen</button>
+            </form>
+            <form class="form-inline my-2 my-lg-0" th:action="@{/register}" sec:authorize="!isAuthenticated()">
+                <button class="btn my-2 my-sm-0" type="submit">Registreren</button>
+            </form>
+            <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/logout}" sec:authorize="isAuthenticated()">
+                <button class="btn my-2 my-sm-0" type="submit">Uitloggen</button>
+            </form>
+            <form th:action="@{/shopping_cart}" class="form-inline my-2 my-lg-0 m-1" sec:authorize="isAuthenticated()">
+                <button class="btn my-2 my-sm-0" type="submit"><i class="bi bi-cart"></i></button>
+            </form>
+        </div>
+    </nav>
+</div>
+</html>

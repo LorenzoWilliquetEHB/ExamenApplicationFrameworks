@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/CSS/styles.css}">
+    <title>Eindproject_Lorenzo_Williquet</title>
+</head>
+<body>
+
+<div th:insert="~{navbar.html :: navbar_winkel}"></div>
+
+<div id="container">
+
+    <div>
+        <img class="img_index" src="/images/ara.jpg"/>
+        <div class="tekst_index">
+            <h1 class="marge_tekst_index">(DierenWinkel)</h1>
+            <p class="marge_tekst_index">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam magna massa, condimentum nec tincidunt quis, sagittis a lectus.</p>
+            <p class="marge_tekst_index">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a class="btn btn-md btn-success rounded-pill marge_tekst_index" th:href="@{/products}">Koop nu</a>
+        </div>
+    </div>
+<!--    <div>-->
+<!--        <h3><a th:href="@{/users}" sec:authorize="isAuthenticated()">List All Users</a></h3>-->
+<!--    </div>-->
+
+</div>
+<div class="footer" th:insert="~{footer.html :: footer_winkel}"></div>
+
+</body>
+</html>
